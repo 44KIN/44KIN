@@ -1,2 +1,5 @@
 out/
 ref/
+# keep video-factory folders, ignore the big media inside them
+video-factory/*/*
+!video-factory/*/.gitkeep
