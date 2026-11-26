@@ -39,7 +39,7 @@
   // seeded hash rand in [0,1)
   const rand = (n, s = 1) => { let x = Math.sin(n * 127.1 + s * 311.7) * 43758.5453; return x - Math.floor(x); };
 
-  // ---- brand tokens: REPLACE with your brand (example values from the original remake)
+  // ---- brand tokens (Shownny)
   const T = {
     bg: '#ffffff', ink: '#0f172a', sub: '#64748b', line: '#e5e7eb', soft: '#f5f7fa',
     a1: '#38bdf8', a2: '#a78bfa', aDeep: '#0369a1', blue: '#2f7bf5', green: '#22c55e',
@@ -82,7 +82,7 @@
   // gradient text span
   const gtext = s => `<span style="background:${T.grad};-webkit-background-clip:text;background-clip:text;color:transparent">${s}</span>`;
   // ---- logos
-  // brand mark: put your logo at assets/logo-mark.png (black glyph PNG, used as a mask so any fill works)
+  // Shownny mark at assets/logo-mark.png (black glyph PNG used as mask so any fill works)
   function mark(size, fill = T.ink) {
     return `<div style="width:${size}px;height:${size}px;background:${fill};-webkit-mask:url(${A('logo-mark.png')}) center/contain no-repeat;mask:url(${A('logo-mark.png')}) center/contain no-repeat"></div>`;
   }
@@ -105,7 +105,7 @@
     return out;
   }
 
-  // ---- palette filter: re-hue any leftover reference-brand colours to your brand accents (applied to final HTML string)
+  // ---- palette filter: re-hue any leftover Gojiberry reds/oranges to Shownny sky/violet (applied to final HTML string)
   function hexToRgb(h) { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); const n = parseInt(h, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
   function rgbToHsl(r, g, b) { r /= 255; g /= 255; b /= 255; const mx = Math.max(r, g, b), mn = Math.min(r, g, b); let h = 0, s = 0; const l = (mx + mn) / 2; if (mx !== mn) { const d = mx - mn; s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h /= 6; } return [h * 360, s, l]; }
   function hslToHex(h, s, l) { h /= 360; const f = n => { const k = (n + h * 12) % 12, a = s * Math.min(l, 1 - l); const c = l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)); return Math.round(c * 255).toString(16).padStart(2, '0'); }; return '#' + f(0) + f(8) + f(4); }

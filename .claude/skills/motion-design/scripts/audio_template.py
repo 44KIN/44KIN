@@ -1,5 +1,5 @@
-"""Example soundtrack (24 s): Mixkit 'Cat Walk' (Arulo, 130 BPM) started at 6.77 s so its
-big hit (song 37.66 s) lands on the key visual at 8.0 s. SFX by measured peak, fade the last 0.9 s, loudnorm -14 LUFS."""
+"""Shownny LinkedIn v4 soundtrack (24 s): Mixkit 'Cat Walk' (Arulo, 130 BPM) from 6.77 s so its
+big hit (song 37.66 s) lands on the sky flood at 8.0 s. SFX by measured peak, fade the last 0.9 s, loudnorm -14 LUFS."""
 import json, subprocess
 from pathlib import Path
 import numpy as np
